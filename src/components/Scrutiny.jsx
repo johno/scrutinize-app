@@ -2,6 +2,7 @@
 
 var React = require('react');
 var UrlForm = require('./UrlForm.jsx');
+var SizeStats = require('./SizeStats.jsx');
 
 module.exports = React.createClass({
   loadScrutinyFromServer: function() {
@@ -17,7 +18,7 @@ module.exports = React.createClass({
     });
   },
   getInitialState: function() {
-    return { data: {}, url: 'furtive.io'};
+    return { data: { title: this.props.url } };
   },
 
   componentDidMount: function() {
@@ -46,6 +47,7 @@ module.exports = React.createClass({
           {this.state.data}
         </pre>
       </div>
+      <SizeStats {...this.state.data} />
     );
   }
 });
