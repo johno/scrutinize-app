@@ -1,4 +1,3 @@
-
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var browserify = require('browserify');
