@@ -4,6 +4,7 @@ var React = require('react');
 var GlobalNav = require('./GlobalNav.jsx');
 var Footer = require('./Footer.jsx');
 var UrlForm = require('./UrlForm.jsx');
+var Scrutiny = require('./Scrutiny.jsx');
 
 module.exports = React.createClass({
 
@@ -12,6 +13,7 @@ module.exports = React.createClass({
       <div>
         <GlobalNav {...this.props} />
         <UrlForm {...this.props} />
+        <Scrutiny url="furtive.co" />
         <Footer {...this.props} />
       </div>
     )
