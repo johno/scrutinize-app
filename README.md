@@ -3,6 +3,21 @@
 The web app for the [scrutinize](https://github.com/johnotander/scrutinize) module. It leverages
 the [scrutinize-api](https://github.com/johnotander/scrutinize-api).
 
+## Installation
+
+```
+git clone https://github.com/johnotander/scrutinize-app.git
+cd scrutinize-app
+npm i
+```
+
+## Usage
+
+```
+gulp
+open localhost:8000
+```
+
 ## Acknowledgements
 
 This wouldn't be possible with out these awesome open source projects:
@@ -30,4 +45,4 @@ Crafted with <3 by John Otander ([@4lpine](https://twitter.com/4lpine)).
 
 ***
 
-> Built with [reactplate](https://github.com/jxnblk/reactplate) by @jxnblk.
+> Built upon [reactplate](https://github.com/jxnblk/reactplate) by @jxnblk.
