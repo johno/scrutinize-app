@@ -2,6 +2,12 @@
 @import 'basscss-colors';
 @import 'basscss-button-blue';
 @import 'basscss-utility-white-space';
+@import 'basscss-color-forms';
+
+.measure {
+  max-width: 64rem;
+  margin: 0 auto;
+}
 
 :root {
   --font-family: 'Helvetica Neue', Helvetica, sans-serif;

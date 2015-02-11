@@ -1,27 +1,13 @@
 /** @jsx React.DOM */
 
-var React = require('react');
-var UrlForm = require('./UrlForm.jsx');
+var React = require('react')
+var TopStats = require('./TopStats.jsx')
+var SizeStats = require('./SizeStats.jsx')
+var UrlForm = require('./UrlForm.jsx')
 
 module.exports = React.createClass({
-  loadScrutinyFromServer: function() {
-    $.ajax({
-      url: 'http://scrutinize.herokuapp.com/?url=' + url.url,
-      dataType: 'json',
-      success: function(data) {
-        this.setState({ data: data });
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  },
   getInitialState: function() {
-    return { data: {}, url: 'furtive.io'};
-  },
-
-  componentDidMount: function() {
-    this.loadScrutinyFromServer();
+    return { data: { title: this.props.url, a11y: { failures: [] }, psi: {}, css: {}, domStats: {} } }
   },
 
   handleUrlSubmit: function(url) {
@@ -30,22 +16,22 @@ module.exports = React.createClass({
       url: 'http://scrutinize.herokuapp.com/?url=' + url.url,
       dataType: 'json',
       success: function(data) {
-        this.setState({data: data});
+        this.setState({ data: data })
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
+        console.error(this.props.url, status, err.toString())
       }.bind(this)
-    });
+    })
   },
+
   render: function() {
     return (
       <div>
         <UrlForm {...this.props} onUrlSubmit={this.handleUrlSubmit} />
         <h1>{this.state.url}</h1>
-        <pre>
-          {this.state.data}
-        </pre>
+        <SizeStats {...this.state.data} />
+        <TopStats {...this.state.data} />
       </div>
-    );
+    )
   }
-});
+})

@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 
-var React = require('react');
+var React = require('react')
 
 module.exports = React.createClass({
   handleSubmit: function(e) {
@@ -15,9 +15,11 @@ module.exports = React.createClass({
   render: function() {
     return (
       <form className="urlForm" onSubmit={this.handleSubmit}>
-        <input type='text' placeholder='Enter a url...' ref='url'/>
-        <input type='submit' value='Scrutinize Url' />
+        <input type="text" name="url" ref="url" placeholder="Enter a url" className="field-light" />
+        <button type="submit" className="button-blue ml1">
+          Scrutinize
+        </button>
       </form>
     )
   }
-});
+})

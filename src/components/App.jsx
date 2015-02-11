@@ -1,9 +1,9 @@
 /** @jsx React.DOM */
 
-var React = require('react');
-var GlobalNav = require('./GlobalNav.jsx');
-var Footer = require('./Footer.jsx');
-var Scrutiny = require('./Scrutiny.jsx');
+var React = require('react')
+var GlobalNav = require('./GlobalNav.jsx')
+var Footer = require('./Footer.jsx')
+var Scrutiny = require('./Scrutiny.jsx')
 
 module.exports = React.createClass({
 
@@ -17,4 +17,4 @@ module.exports = React.createClass({
       </div>
     )
   }
-});
+})
