@@ -1,7 +1,9 @@
 /** @jsx React.DOM */
 
 var React = require('react');
+
 var UrlForm = require('./UrlForm.jsx');
+var TopStats = require('./TopStats.jsx');
 var SizeStats = require('./SizeStats.jsx');
 
 module.exports = React.createClass({
@@ -18,7 +20,7 @@ module.exports = React.createClass({
     });
   },
   getInitialState: function() {
-    return { data: { title: this.props.url } };
+    return { data: { title: this.props.url, a11y: { failures: [] }, psi: {}, css: {}, domStats: {} } };
   },
 
   componentDidMount: function() {
@@ -31,23 +33,21 @@ module.exports = React.createClass({
       url: 'http://scrutinize.herokuapp.com/?url=' + url.url,
       dataType: 'json',
       success: function(data) {
-        this.setState({data: data});
+        this.setState({ data: data })
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
+        console.error(this.props.url, status, err.toString())
       }.bind(this)
-    });
+    })
   },
   render: function() {
     return (
       <div>
         <UrlForm {...this.props} onUrlSubmit={this.handleUrlSubmit} />
         <h1>{this.state.url}</h1>
-        <pre>
-          {this.state.data}
-        </pre>
+        <SizeStats {...this.state.data} />
+        <TopStats {...this.state.data} />
       </div>
-      <SizeStats {...this.state.data} />
-    );
+    )
   }
-});
+})
