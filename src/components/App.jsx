@@ -15,6 +15,7 @@ module.exports = React.createClass({
         <UrlForm {...this.props} />
         <Scrutiny url="furtive.co" />
         <Footer {...this.props} />
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
       </div>
     )
   }
