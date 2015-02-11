@@ -1,3 +1,3 @@
-var data = require('../package.json');
+var data = require('../package.json')
 
-module.exports = data;
+module.exports = data

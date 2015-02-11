@@ -1,10 +1,8 @@
 /** @jsx React.DOM */
 
-var React = require('react');
-
-var UrlForm = require('./UrlForm.jsx');
-var TopStats = require('./TopStats.jsx');
-var SizeStats = require('./SizeStats.jsx');
+var React = require('react')
+var TopStats = require('./TopStats.jsx')
+var SizeStats = require('./SizeStats.jsx')
 
 module.exports = React.createClass({
   loadScrutinyFromServer: function() {
@@ -20,7 +18,7 @@ module.exports = React.createClass({
     });
   },
   getInitialState: function() {
-    return { data: { title: this.props.url, a11y: { failures: [] }, psi: {}, css: {}, domStats: {} } };
+    return { data: { title: this.props.url, a11y: { failures: [] }, psi: {}, css: {}, domStats: {} } }
   },
 
   componentDidMount: function() {
@@ -40,6 +38,7 @@ module.exports = React.createClass({
       }.bind(this)
     })
   },
+
   render: function() {
     return (
       <div>
