@@ -7,7 +7,6 @@ var Scrutiny = require('./Scrutiny.jsx');
 
 module.exports = React.createClass({
 
-
   render: function() {
     return (
       <div>
