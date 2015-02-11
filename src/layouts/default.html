@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= name %></title>
+  <meta name="author" content="<%= obj.author ? author : '' %>">
+  <meta name="description" content="<%= obj.description ? description : '' %>">
+  <% if (obj.keywords) { %>
+    <meta name="keywords" content="<% keywords.forEach(function(keyword) { %><%= keyword %>, <% }) %>">
+  <% } %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/c.css">
+</head>
+<body>
+
+<div id="app">
+  <%= app %>
+</div>
+
+<script src="js/j.min.js"></script>
+
+</body>
+</html>
