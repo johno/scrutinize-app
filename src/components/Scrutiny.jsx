@@ -1,10 +1,10 @@
 /** @jsx React.DOM */
 
 var React = require('react')
-var TopStats = require('./TopStats.jsx')
-var SizeStats = require('./SizeStats.jsx')
+var TopStats = require('./Stats/TopStats.jsx')
+var SizeStats = require('./Stats/SizeStats.jsx')
 var MostSpecificSelectors = require('./Css/MostSpecificSelectors.jsx')
-var UrlForm = require('./UrlForm.jsx')
+var UrlForm = require('./Urls/UrlForm.jsx')
 
 module.exports = React.createClass({
   getInitialState: function() {
