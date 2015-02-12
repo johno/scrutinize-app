@@ -35,8 +35,8 @@ module.exports = React.createClass({
         <UrlForm {...this.props} onUrlSubmit={this.handleUrlSubmit} />
         <h1>{this.state.url}</h1>
         <Requests {...this.state.data.psi} />
-        <SizeStats {...this.state.data} />
         <TopStats {...this.state.data} />
+        <SizeStats {...this.state.data} />
         <MostSpecificSelectors selectors={selectors} />
         <DomTags {...this.state.data.domStats} />
       </div>

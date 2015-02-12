@@ -18,7 +18,7 @@ module.exports = React.createClass({
           </div>
           <div className="g-r-c-3-12">
             <h4 className="h1">{this.props.domStats.totalTags}</h4>
-            <p className="h4">HTLM Tags</p>
+            <p className="h4">HTML Tags</p>
           </div>
           <div className="g-r-c-3-12">
             <h4 className="h1">{this.props.css.selectorCount}</h4>
