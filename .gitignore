@@ -1,5 +1,2 @@
 node_modules/
-index.html
-js/j.min.js
-css/c.css
-css/c.min.css
+dist/
