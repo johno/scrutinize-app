@@ -4,6 +4,7 @@ var React = require('react')
 
 var isUrl = require('is-url')
 var normalizeUrl = require('normalize-url')
+var getQueryParam = require('get-query-param')
 
 var UrlForm = require('./Urls/UrlForm.jsx')
 var TopStats = require('./Stats/TopStats.jsx')
@@ -34,7 +35,7 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function() {
-    var url = window.location.href.split('/?url=')[1]
+    var url = getQueryParam('url', window.location.href)
 
     if (url && isUrl(normalizeUrl(url))) {
       this.getUrlData(url)
