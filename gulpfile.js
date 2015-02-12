@@ -31,9 +31,11 @@ gulp.task('js', function() {
   })
   gulp.src('./src/app.js')
     .pipe(browserified)
-    //.pipe(uglify())
-    .pipe(rename('j.min.js'))
-    .pipe(gulp.dest('./js'))
+    .pipe(rename('j.js'))
+    .pipe(gulp.dest('dist/js'))
+    .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('dist/js'))
 })
 
 gulp.task('css', function() {
@@ -63,15 +65,15 @@ gulp.task('css', function() {
     .pipe(rename('c.css'))
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(prefix("last 3 versions"))
-    .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('dist/css'))
     .pipe(cssmin())
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('css'))
+    .pipe(gulp.dest('dist/css'))
   })
 
 gulp.task('serve', function() {
-  gulp.src('.')
+  gulp.src('dist/')
     .pipe(webserver({}))
 })
 
