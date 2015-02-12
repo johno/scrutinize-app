@@ -5,12 +5,13 @@ var UrlForm = require('./Urls/UrlForm.jsx')
 var TopStats = require('./Stats/TopStats.jsx')
 var SizeStats = require('./Stats/SizeStats.jsx')
 var DomTags = require('./Dom/Tags.jsx')
-var Requests = require('./Psi/Requests.jsx')
+var PsiRequests = require('./Psi/Requests.jsx')
+var PsiSummary= require('./Psi/Summary.jsx')
 var MostSpecificSelectors = require('./Css/MostSpecificSelectors.jsx')
 
 module.exports = React.createClass({
   getInitialState: function() {
-    return { data: { title: this.props.url, a11y: { failures: [] }, psi: {}, css: { stats: {} }, domStats: {} } }
+    return { data: { title: this.props.url, a11y: { failures: [] }, psi: { ruleResults: [] }, css: { stats: {} }, domStats: {} } }
   },
 
   handleUrlSubmit: function(url) {
@@ -34,11 +35,12 @@ module.exports = React.createClass({
       <div>
         <UrlForm {...this.props} onUrlSubmit={this.handleUrlSubmit} />
         <h1>{this.state.url}</h1>
-        <Requests {...this.state.data.psi} />
+        <PsiRequests {...this.state.data.psi} />
         <TopStats {...this.state.data} />
         <SizeStats {...this.state.data} />
         <MostSpecificSelectors selectors={selectors} />
         <DomTags {...this.state.data.domStats} />
+        <PsiSummary results={this.state.data.psi.ruleResults} />
       </div>
     )
   }
