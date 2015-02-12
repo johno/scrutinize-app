@@ -1,10 +1,12 @@
 /** @jsx React.DOM */
 
 var React = require('react')
-var TopStats = require('./TopStats.jsx')
-var SizeStats = require('./SizeStats.jsx')
+var UrlForm = require('./Urls/UrlForm.jsx')
+var TopStats = require('./Stats/TopStats.jsx')
+var SizeStats = require('./Stats/SizeStats.jsx')
+var DomTags = require('./Dom/Tags.jsx')
+var Requests = require('./Psi/Requests.jsx')
 var MostSpecificSelectors = require('./Css/MostSpecificSelectors.jsx')
-var UrlForm = require('./UrlForm.jsx')
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -32,9 +34,11 @@ module.exports = React.createClass({
       <div>
         <UrlForm {...this.props} onUrlSubmit={this.handleUrlSubmit} />
         <h1>{this.state.url}</h1>
+        <Requests {...this.state.data.psi} />
         <SizeStats {...this.state.data} />
         <TopStats {...this.state.data} />
         <MostSpecificSelectors selectors={selectors} />
+        <DomTags {...this.state.data.domStats} />
       </div>
     )
   }
