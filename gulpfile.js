@@ -70,14 +70,19 @@ gulp.task('css', function() {
     .pipe(size({ gzip: true, showFiles: true }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist/css'))
-  })
+})
+
+gulp.task('static', function() {
+  gulp.src(['error.html'])
+    .pipe(gulp.dest('dist'))
+})
 
 gulp.task('serve', function() {
   gulp.src('dist/')
     .pipe(webserver({}))
 })
 
-gulp.task('default', ['build', 'js', 'css', 'serve'], function() {
+gulp.task('default', ['build', 'js', 'css', 'serve', 'static'], function() {
   gulp.watch(['src/**/*'], ['build', 'js'])
   gulp.watch(['css/src/**/*.css'], ['css'])
 })
