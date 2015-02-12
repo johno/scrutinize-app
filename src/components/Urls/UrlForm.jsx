@@ -1,17 +1,20 @@
 /** @jsx React.DOM */
 
 var React = require('react')
+var isUrl = require('is-url')
+var normalizeUrl = require('normalize-url')
 
 module.exports = React.createClass({
+
   handleSubmit: function(e) {
-    e.preventDefault();
-    var url = this.refs.url.getDOMNode().value.trim();
-    if (!url) {
+    var url = this.refs.url.getDOMNode().value.trim()
+
+    if (!isUrl(normalizeUrl(url))) {
+      // ... TODO: Provide error message.
       return;
     }
-    this.props.onUrlSubmit({url: url});
-    this.refs.url.getDOMNode().value = '';
   },
+
   render: function() {
     return (
       <form className="urlForm" onSubmit={this.handleSubmit}>
