@@ -11,7 +11,7 @@ var TopStats = require('./Stats/TopStats.jsx')
 var SizeStats = require('./Stats/SizeStats.jsx')
 var DomTags = require('./Dom/Tags.jsx')
 var PsiRequests = require('./Psi/Requests.jsx')
-var PsiSummary= require('./Psi/Summary.jsx')
+var PsiSummary = require('./Psi/Summary.jsx')
 var MostSpecificSelectors = require('./Css/MostSpecificSelectors.jsx')
 
 module.exports = React.createClass({

@@ -8,12 +8,12 @@ module.exports = React.createClass({
 
   render: function() {
     var sortedSelectors = _sortBy(this.props.selectors || [], 'specificity_10')
-    var mostSpecificSelectors = _takeRight(sortedSelectors, 10)
+    var mostSpecificSelectors = _takeRight(sortedSelectors, 10).reverse()
 
     var selectorNodes = mostSpecificSelectors.map(function(selector) {
       return (
         <div>
-          {selector.selector}
+          {selector.selector} {selector.specificity_10}
         </div>
       )
     })

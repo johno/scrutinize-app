@@ -6,11 +6,24 @@ module.exports = React.createClass({
 
   render: function() {
     var resultsNodes = this.props.result.results.map(function(result) {
-      return (
-        <li>
-          {result}
-        </li>
-      )
+      if (result.results.length) {
+        return (
+          <li>
+            {result.header}
+            <ul>
+              {result.results.map(function(res) {
+                return <li>{res}</li>
+              })}
+            </ul>
+          </li>
+        )
+      } else {
+        return (
+          <li>
+            {result.header}
+          </li>
+        )
+      }
     })
 
     return (
